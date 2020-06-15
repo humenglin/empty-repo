@@ -28,4 +28,16 @@ public class FizzBuzzTest {
         // then
         assertEquals("Fizz", resultActual);
     }
+
+    @Test
+    public void should_return_Buzz_when_say_given_3() {
+        // given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        // when
+        String resultActual = fizzBuzz.say(5);
+
+        // then
+        assertEquals("Buzz", resultActual);
+    }
 }
