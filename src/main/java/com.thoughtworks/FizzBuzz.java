@@ -5,7 +5,9 @@ import com.thoughtworks.constants.FizzBuzzConstans;
 public class FizzBuzz {
 
     public String say(int number) {
-        if ((number % 3 == 0) && (number % 5 == 0)) {
+        if ((number % 3 == 0) && (number % 5 == 0) && (number % 7 == 0)) {
+            return FizzBuzzConstans.Three_Constans + FizzBuzzConstans.Five_Constans + FizzBuzzConstans.Seven_Constans;
+        } else if ((number % 3 == 0) && (number % 5 == 0)) {
             return FizzBuzzConstans.Three_Constans + FizzBuzzConstans.Five_Constans;
         } else if ((number % 3 == 0) && (number % 7 == 0)) {
             return FizzBuzzConstans.Three_Constans + FizzBuzzConstans.Seven_Constans;
