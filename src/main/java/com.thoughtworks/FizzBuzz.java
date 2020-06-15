@@ -8,15 +8,15 @@ public class FizzBuzz {
         String result = "";
 
         String numberStr = String.valueOf(number);
-        if (numberStr.contains("7")) {
+        if (numberStr.contains(FizzBuzzEnum.SEVEEN.getSpecialStr())) {
             return controllerMultiple(number, FizzBuzzEnum.THREE, result) +
                     controllerMultiple(number, FizzBuzzEnum.SEVEEN, result);
         }
-        if (numberStr.contains("5")) {
+        if (numberStr.contains(FizzBuzzEnum.FIVE.getSpecialStr())) {
             return controllerMultiple(number, FizzBuzzEnum.FIVE, result) +
                     controllerMultiple(number, FizzBuzzEnum.SEVEEN, result);
         }
-        if (numberStr.contains("3")) {
+        if (numberStr.contains(FizzBuzzEnum.THREE.getSpecialStr())) {
             return FizzBuzzConstans.Three_Constans;
         }
 
@@ -24,15 +24,15 @@ public class FizzBuzz {
         result = controllerMultiple(number, FizzBuzzEnum.FIVE, result);
         result = controllerMultiple(number, FizzBuzzEnum.SEVEEN, result);
 
-        if ((number % 3 != 0) && (number % 5 != 0) && (number % 7 != 0)) {
+        if (FizzBuzzEnum.isNotMultipleOfSpecialNumber(number)) {
             result = String.valueOf(number);
         }
         return result;
     }
 
     private String controllerMultiple(int number, FizzBuzzEnum fizzBuzzEnum, String result) {
-        if (number % fizzBuzzEnum.getNumber() == 0) {
-            result += fizzBuzzEnum.getReplaceStr();
+        if (number % fizzBuzzEnum.getSpecialNumber() == 0) {
+            result += fizzBuzzEnum.getReplaceStrOfSpecialNumber();
         }
         return result;
     }
