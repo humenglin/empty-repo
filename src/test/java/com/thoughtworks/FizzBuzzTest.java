@@ -30,7 +30,7 @@ public class FizzBuzzTest {
     }
 
     @Test
-    public void should_return_Buzz_when_say_given_3() {
+    public void should_return_Buzz_when_say_given_5() {
         // given
         FizzBuzz fizzBuzz = new FizzBuzz();
 
