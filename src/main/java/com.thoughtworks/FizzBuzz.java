@@ -7,6 +7,11 @@ public class FizzBuzz {
     public String say(int number) {
         String result = "";
 
+        String numberStr = String.valueOf(number);
+        if (numberStr.contains("3")) {
+            return FizzBuzzConstans.Three_Constans;
+        }
+
         if (number % 3 == 0) {
             result += FizzBuzzConstans.Three_Constans;
         }
