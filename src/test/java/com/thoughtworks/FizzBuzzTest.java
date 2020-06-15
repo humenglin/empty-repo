@@ -83,10 +83,22 @@ public class FizzBuzzTest {
         FizzBuzz fizzBuzz = new FizzBuzz();
 
         // when
-        String resultActual = fizzBuzz.say(70);
+        String resultActual = fizzBuzz.say(105);
 
         // then
         assertEquals("BuzzWhizz", resultActual);
+    }
+
+    @Test
+    public void should_return_Whizz_when_say_given_70() {
+        // given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        // when
+        String resultActual = fizzBuzz.say(70);
+
+        // then
+        assertEquals("Whizz", resultActual);
     }
 
     @Test
@@ -147,5 +159,17 @@ public class FizzBuzzTest {
 
         // then
         assertEquals("Buzz", resultActual);
+    }
+
+    @Test
+    public void should_return_Fizz_when_say_given_75() {
+        // given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        // when
+        String resultActual = fizzBuzz.say(75);
+
+        // then
+        assertEquals("Fizz", resultActual);
     }
 }
