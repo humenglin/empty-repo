@@ -8,11 +8,12 @@ public class FizzBuzz {
         String result = "";
 
         String numberStr = String.valueOf(number);
-        if (numberStr.contains("3")) {
+        if (numberStr.contains("3") && !numberStr.contains("5")) {
             return FizzBuzzConstans.Three_Constans;
         }
 
-        if (number % 3 == 0) {
+
+        if (number % 3 == 0 && !numberStr.contains("5")) {
             result += FizzBuzzConstans.Three_Constans;
         }
 

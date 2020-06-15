@@ -42,12 +42,12 @@ public class FizzBuzzTest {
     }
 
     @Test
-    public void should_return_FizzBuzz_when_say_given_15() {
+    public void should_return_FizzBuzz_when_say_given_multiple_of_three_and_five() {
         // given
         FizzBuzz fizzBuzz = new FizzBuzz();
 
         // when
-        String resultActual = fizzBuzz.say(15);
+        String resultActual = fizzBuzz.say(60);
 
         // then
         assertEquals("FizzBuzz", resultActual);
@@ -66,7 +66,7 @@ public class FizzBuzzTest {
     }
 
     @Test
-    public void should_return_FizzWhizz_when_say_given_21() {
+    public void should_return_FizzWhizz_when_say_given_multiple_of_three_and_seven() {
         // given
         FizzBuzz fizzBuzz = new FizzBuzz();
 
@@ -78,7 +78,7 @@ public class FizzBuzzTest {
     }
 
     @Test
-    public void should_return_BuzzWhizz_when_say_given_70() {
+    public void should_return_BuzzWhizz_when_say_given_multiple_of_five_and_seven() {
         // given
         FizzBuzz fizzBuzz = new FizzBuzz();
 
@@ -90,12 +90,12 @@ public class FizzBuzzTest {
     }
 
     @Test
-    public void should_return_BuzzWhizz_when_say_given_105() {
+    public void should_return_BuzzWhizz_when_say_given_multiple_of_three_and_five_and_seven() {
         // given
         FizzBuzz fizzBuzz = new FizzBuzz();
 
         // when
-        String resultActual = fizzBuzz.say(105);
+        String resultActual = fizzBuzz.say(210);
 
         // then
         assertEquals("FizzBuzzWhizz", resultActual);
@@ -114,7 +114,7 @@ public class FizzBuzzTest {
     }
 
     @Test
-    public void should_return_Fizz_when_say_given_35() {
+    public void should_return_BuzzWhizz_when_say_given_35() {
         // given
         FizzBuzz fizzBuzz = new FizzBuzz();
 
@@ -122,7 +122,7 @@ public class FizzBuzzTest {
         String resultActual = fizzBuzz.say(35);
 
         // then
-        assertEquals("Fizz", resultActual);
+        assertEquals("BuzzWhizz", resultActual);
     }
 
     @Test
@@ -135,5 +135,17 @@ public class FizzBuzzTest {
 
         // then
         assertEquals("Fizz", resultActual);
+    }
+
+    @Test
+    public void should_return_Fizz_when_say_given_15() {
+        // given
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        // when
+        String resultActual = fizzBuzz.say(15);
+
+        // then
+        assertEquals("Buzz", resultActual);
     }
 }
