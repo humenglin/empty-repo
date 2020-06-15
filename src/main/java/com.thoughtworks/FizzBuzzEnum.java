@@ -8,8 +8,8 @@ public enum FizzBuzzEnum {
     SEVEEN(7, FizzBuzzConstans.Seven_Constans);
 
     private int number;
-    private String replaceStr;
 
+    private String replaceStr;
     FizzBuzzEnum(int number, String replaceStr) {
         this.number = number;
         this.replaceStr = replaceStr;
@@ -23,6 +23,10 @@ public enum FizzBuzzEnum {
         }
 
         throw new IllegalArgumentException("未知的特殊值：" + number);
+    }
+
+    public int getNumber() {
+        return number;
     }
 
     public String getReplaceStr() {

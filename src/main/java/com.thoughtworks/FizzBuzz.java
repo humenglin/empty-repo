@@ -9,18 +9,20 @@ public class FizzBuzz {
 
         String numberStr = String.valueOf(number);
         if (numberStr.contains("7")) {
-            return controllerMultipleOfThree(number, result) + controllerMultipleOfSeven(number, result);
+            return controllerMultiple(number, FizzBuzzEnum.THREE, result) +
+                    controllerMultiple(number, FizzBuzzEnum.SEVEEN, result);
         }
         if (numberStr.contains("5")) {
-            return controllerMultipleOfFive(number, result) + controllerMultipleOfSeven(number, result);
+            return controllerMultiple(number, FizzBuzzEnum.FIVE, result) +
+                    controllerMultiple(number, FizzBuzzEnum.SEVEEN, result);
         }
         if (numberStr.contains("3")) {
             return FizzBuzzConstans.Three_Constans;
         }
 
-        result = controllerMultipleOfThree(number, result);
-        result = controllerMultipleOfFive(number, result);
-        result = controllerMultipleOfSeven(number, result);
+        result = controllerMultiple(number, FizzBuzzEnum.THREE, result);
+        result = controllerMultiple(number, FizzBuzzEnum.FIVE, result);
+        result = controllerMultiple(number, FizzBuzzEnum.SEVEEN, result);
 
         if ((number % 3 != 0) && (number % 5 != 0) && (number % 7 != 0)) {
             result = String.valueOf(number);
@@ -28,23 +30,9 @@ public class FizzBuzz {
         return result;
     }
 
-    private String controllerMultipleOfThree(int number, String result) {
-        if (number % 3 == 0) {
-            result += FizzBuzzConstans.Three_Constans;
-        }
-        return result;
-    }
-
-    private String controllerMultipleOfFive(int number, String result) {
-        if (number % 5 == 0) {
-            result += FizzBuzzConstans.Five_Constans;
-        }
-        return result;
-    }
-
-    private String controllerMultipleOfSeven(int number, String result) {
-        if (number % 7 == 0) {
-            result += FizzBuzzConstans.Seven_Constans;
+    private String controllerMultiple(int number, FizzBuzzEnum fizzBuzzEnum, String result) {
+        if (number % fizzBuzzEnum.getNumber() == 0) {
+            result += fizzBuzzEnum.getReplaceStr();
         }
         return result;
     }
