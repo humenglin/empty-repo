@@ -11,6 +11,8 @@ public class FizzBuzz {
             return FizzBuzzConstans.Three_Constans;
         } else if (number % 5 == 0) {
             return FizzBuzzConstans.Five_Constans;
+        } else if (number % 7 == 0) {
+            return FizzBuzzConstans.Seven_Constans;
         }
         return String.valueOf(number);
     }
