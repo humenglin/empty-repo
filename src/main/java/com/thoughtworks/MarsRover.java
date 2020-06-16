@@ -45,6 +45,8 @@ public class MarsRover {
                 this.marsPosition.setDirection(DirectionEnum.WEST);
             } else if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
                 this.marsPosition.setDirection(DirectionEnum.SOUTH);
+            } else if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
+                this.marsPosition.setDirection(DirectionEnum.NORTH);
             }
         }
         return this.marsPosition;
