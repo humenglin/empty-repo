@@ -160,4 +160,11 @@ public class MarsRoverTest {
     public void should_throw_exception_when_init_position_given_a_out_of_boundary_position() {
         new MarsPosition(6, 3, DirectionEnum.WEST);
     }
+
+    @Test
+    public void should_return_boundary_position_when_given_a_boundary_position() {
+        MarsPosition marsPosition = new MarsPosition(5, -5, DirectionEnum.WEST);
+
+        assertThat(marsPosition).isEqualToComparingFieldByField(new MarsPosition(5, -5, DirectionEnum.WEST));
+    }
 }
