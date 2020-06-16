@@ -32,4 +32,8 @@ public class MarsPosition {
     public DirectionEnum getDirection() {
         return direction;
     }
+
+    public void setDirection(DirectionEnum direction) {
+        this.direction = direction;
+    }
 }

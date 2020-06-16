@@ -54,7 +54,13 @@ public class MarsRoverTest {
 
     @Test
     public void should_turn_east_when_action_given_a_turn_left_command_and_face_south() {
+        MarsPosition marsPositionBefore = new MarsPosition(0, 0, DirectionEnum.SOUTH);
+        ActionCommandEnum actionCommand = ActionCommandEnum.TURN_LEFT;
 
+        MarsRover marsRover = new MarsRover(marsPositionBefore);
+        MarsPosition marsPositionAfter = marsRover.action(actionCommand);
+
+        assertThat(marsPositionAfter).isEqualToComparingFieldByField(new MarsPosition(0, 0, DirectionEnum.EAST));
     }
 
     @Test
