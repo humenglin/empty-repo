@@ -3,11 +3,20 @@ package com.thoughtworks;
 import com.thoughtworks.enumeration.ActionCommandEnum;
 import com.thoughtworks.enumeration.DirectionEnum;
 
+import java.util.List;
+
 public class MarsRover {
     private MarsPosition marsPosition;
 
     public MarsRover(MarsPosition marsPosition) {
         this.marsPosition = marsPosition;
+    }
+
+    public MarsPosition receiveCommands(List<ActionCommandEnum> actionCommands) {
+        for (ActionCommandEnum actionCommand : actionCommands) {
+            this.marsPosition = action(actionCommand);
+        }
+        return this.marsPosition;
     }
 
     public MarsPosition action(ActionCommandEnum actionCommand) {
