@@ -16,15 +16,7 @@ public class MarsRover {
         }
 
         if (ActionCommandEnum.TURN_LEFT == actionCommand) {
-            if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
-                this.marsPosition.setDirection(DirectionEnum.WEST);
-            } else if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
-                this.marsPosition.setDirection(DirectionEnum.EAST);
-            } else if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
-                this.marsPosition.setDirection(DirectionEnum.NORTH);
-            } else if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
-                this.marsPosition.setDirection(DirectionEnum.SOUTH);
-            }
+            turnLeft();
         }
 
         if (ActionCommandEnum.TURN_RIGHT == actionCommand) {
@@ -39,6 +31,18 @@ public class MarsRover {
             }
         }
         return this.marsPosition;
+    }
+
+    private void turnLeft() {
+        if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.WEST);
+        } else if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.EAST);
+        } else if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.NORTH);
+        } else if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.SOUTH);
+        }
     }
 
     private void move() {
