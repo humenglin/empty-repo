@@ -5,12 +5,13 @@ import com.thoughtworks.enumeration.DirectionEnum;
 import com.thoughtworks.exception.OutOfBoundaryException;
 
 public class MarsPosition {
+    public static final int BOUNDARY = 5;
     private int positionX;
     private int positionY;
     private DirectionEnum direction;
 
     public MarsPosition(int positionX, int positionY, DirectionEnum direction) {
-        if (positionX < -5 || positionX > 5 || positionY < -5 || positionY > 5) {
+        if (positionX < -BOUNDARY || positionX > BOUNDARY || positionY < -BOUNDARY || positionY > BOUNDARY) {
             throw new OutOfBoundaryException(CHECKMSG.OUT_OF_BOUNDARY, CHECKMSG.OUT_OF_BOUNDARY);
         }
         this.positionX = positionX;
