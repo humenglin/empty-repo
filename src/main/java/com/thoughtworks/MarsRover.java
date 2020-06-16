@@ -12,7 +12,14 @@ public class MarsRover {
 
     public MarsPosition action(ActionCommandEnum actionCommand) {
         if (ActionCommandEnum.MOVE == actionCommand) {
-            return new MarsPosition(0, 1, DirectionEnum.NORTH);
+            if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
+                this.marsPosition.setPositionY(this.marsPosition.getPositionY() + 1);
+                return this.marsPosition;
+            }
+            if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
+                this.marsPosition.setPositionY(this.marsPosition.getPositionY() - 1);
+                return this.marsPosition;
+            }
         }
 
         if (ActionCommandEnum.TURN_LEFT == actionCommand) {

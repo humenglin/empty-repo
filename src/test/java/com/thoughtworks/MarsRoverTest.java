@@ -43,7 +43,13 @@ public class MarsRoverTest {
 
     @Test
     public void should_move_south_one_step_when_action_given_a_move_command_and_face_south() {
+        MarsPosition marsPositionBefore = new MarsPosition(0, 0, DirectionEnum.SOUTH);
+        ActionCommandEnum actionCommand = ActionCommandEnum.MOVE;
 
+        MarsRover marsRover = new MarsRover(marsPositionBefore);
+        MarsPosition marsPositionAfter = marsRover.action(actionCommand);
+
+        assertThat(marsPositionAfter).isEqualToComparingFieldByField(new MarsPosition(0, -1, DirectionEnum.SOUTH));
     }
 
     @Test
