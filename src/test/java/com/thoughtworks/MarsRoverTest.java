@@ -1,6 +1,5 @@
 package com.thoughtworks;
 
-import static org.junit.Assert.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.thoughtworks.enumeration.ActionCommandEnum;
@@ -22,7 +21,13 @@ public class MarsRoverTest {
 
     @Test
     public void should_turn_west_when_action_given_a_turn_left_command_and_face_north() {
+        MarsPosition marsPositionBefore = new MarsPosition(0, 0, DirectionEnum.NORTH);
+        ActionCommandEnum actionCommand = ActionCommandEnum.TURN_LEFT;
 
+        MarsRover marsRover = new MarsRover(marsPositionBefore);
+        MarsPosition marsPositionAfter = marsRover.action(actionCommand);
+
+        assertThat(marsPositionAfter).isEqualToComparingFieldByField(new MarsPosition(0, 0, DirectionEnum.WEST));
     }
 
     @Test

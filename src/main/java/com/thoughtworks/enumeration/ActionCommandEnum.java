@@ -1,7 +1,8 @@
 package com.thoughtworks.enumeration;
 
 public enum ActionCommandEnum {
-    MOVE("M");
+    MOVE("M"),
+    TURN_LEFT("L");
 
     private String actionValue;
 

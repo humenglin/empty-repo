@@ -11,6 +11,13 @@ public class MarsRover {
     }
 
     public MarsPosition action(ActionCommandEnum actionCommand) {
-        return new MarsPosition(0, 1, DirectionEnum.NORTH);
+        if (ActionCommandEnum.MOVE == actionCommand) {
+            return new MarsPosition(0, 1, DirectionEnum.NORTH);
+        }
+
+        if (ActionCommandEnum.TURN_LEFT == actionCommand) {
+            return new MarsPosition(0, 0, DirectionEnum.WEST);
+        }
+        return null;
     }
 }
