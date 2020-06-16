@@ -34,7 +34,14 @@ public class MarsRover {
         }
 
         if (ActionCommandEnum.TURN_RIGHT == actionCommand) {
-            return new MarsPosition(0, 0, DirectionEnum.EAST);
+            if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
+                this.marsPosition.setDirection(DirectionEnum.EAST);
+                return this.marsPosition;
+            }
+            if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
+                this.marsPosition.setDirection(DirectionEnum.WEST);
+                return this.marsPosition;
+            }
         }
         return null;
     }
