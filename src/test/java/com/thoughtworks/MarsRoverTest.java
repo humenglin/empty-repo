@@ -167,4 +167,16 @@ public class MarsRoverTest {
 
         assertThat(marsPosition).isEqualToComparingFieldByField(new MarsPosition(5, -5, DirectionEnum.WEST));
     }
+
+    @Test(expected = OutOfBoundaryException.class)
+    public void should_throw_exception_when_action_by_single_command_given_a_boundary_position_and_a_move_command() {
+        MarsPosition marsPositionBefore = new MarsPosition(5, 0, DirectionEnum.EAST);
+        MarsRover marsRover = new MarsRover(marsPositionBefore);
+
+        ActionCommandEnum actionCommand = ActionCommandEnum.MOVE;
+        List<ActionCommandEnum> actionCommands = new ArrayList<>();
+        actionCommands.add(actionCommand);
+
+        marsRover.receiveCommands(actionCommands);
+    }
 }
