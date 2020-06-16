@@ -49,10 +49,7 @@ public class MarsRover {
         if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
             this.marsPosition.setPositionX(this.marsPosition.getPositionX() - 1);
         }
-        if (this.marsPosition.getPositionX() < -5 || this.marsPosition.getPositionX() > 5
-                || this.marsPosition.getPositionY() < -5 || this.marsPosition.getPositionY() > 5) {
-            throw new OutOfBoundaryException(CHECKMSG.OUT_OF_BOUNDARY, CHECKMSG.OUT_OF_BOUNDARY);
-        }
+        this.marsPosition.checkPosition();
     }
 
     private void turnLeft() {

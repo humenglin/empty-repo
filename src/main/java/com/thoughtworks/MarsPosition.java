@@ -11,12 +11,16 @@ public class MarsPosition {
     private DirectionEnum direction;
 
     public MarsPosition(int positionX, int positionY, DirectionEnum direction) {
-        if (positionX < -BOUNDARY || positionX > BOUNDARY || positionY < -BOUNDARY || positionY > BOUNDARY) {
-            throw new OutOfBoundaryException(CHECKMSG.OUT_OF_BOUNDARY, CHECKMSG.OUT_OF_BOUNDARY);
-        }
         this.positionX = positionX;
         this.positionY = positionY;
         this.direction = direction;
+        checkPosition();
+    }
+
+    public void checkPosition() {
+        if (this.positionX < -BOUNDARY || this.positionX > BOUNDARY || this.positionY < -BOUNDARY || this.positionY > BOUNDARY) {
+            throw new OutOfBoundaryException(CHECKMSG.OUT_OF_BOUNDARY, CHECKMSG.OUT_OF_BOUNDARY);
+        }
     }
 
     public int getPositionX() {
