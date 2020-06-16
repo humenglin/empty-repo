@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.thoughtworks.enumeration.ActionCommandEnum;
 import com.thoughtworks.enumeration.DirectionEnum;
+import com.thoughtworks.exception.OutOfBoundaryException;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -153,5 +154,10 @@ public class MarsRoverTest {
         MarsPosition marsPositionAfter = marsRover.receiveCommands(actionCommands);
 
         assertThat(marsPositionAfter).isEqualToComparingFieldByField(new MarsPosition(0, -1, DirectionEnum.SOUTH));
+    }
+
+    @Test(expected = OutOfBoundaryException.class)
+    public void should_throw_exception_when_init_position_given_a_out_of_boundary_position() {
+        new MarsPosition(6, 3, DirectionEnum.WEST);
     }
 }

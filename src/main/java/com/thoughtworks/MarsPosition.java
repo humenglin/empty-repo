@@ -1,6 +1,8 @@
 package com.thoughtworks;
 
+import com.thoughtworks.constants.CHECKMSG;
 import com.thoughtworks.enumeration.DirectionEnum;
+import com.thoughtworks.exception.OutOfBoundaryException;
 
 public class MarsPosition {
     private int positionX;
@@ -8,6 +10,9 @@ public class MarsPosition {
     private DirectionEnum direction;
 
     public MarsPosition(int positionX, int positionY, DirectionEnum direction) {
+        if (positionX < -5 || positionX > 5 || positionY < -5 || positionY > 5) {
+            throw new OutOfBoundaryException(CHECKMSG.OUT_OF_BOUNDARY, CHECKMSG.OUT_OF_BOUNDARY);
+        }
         this.positionX = positionX;
         this.positionY = positionY;
         this.direction = direction;
