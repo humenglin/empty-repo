@@ -179,4 +179,13 @@ public class MarsRoverTest {
 
         marsRover.receiveCommands(actionCommands);
     }
+
+    @Test
+    public void should_turn_south_when_receiveCommands_given_a_boundary_position_and_a_turn_left_command_and_face_west() {
+        MarsPosition marsPositionBefore = new MarsPosition(0, 0, DirectionEnum.WEST);
+        ActionCommandEnum actionCommand = ActionCommandEnum.TURN_LEFT;
+        MarsPosition marsPositionExpected = new MarsPosition(0, 0, DirectionEnum.SOUTH);
+
+        should_return_mars_position_when_action_by_single_command_given_a_init_position_and_a_command(marsPositionBefore, actionCommand, marsPositionExpected);
+    }
 }
