@@ -19,7 +19,7 @@ public class MarsRover {
         return this.marsPosition;
     }
 
-    public MarsPosition action(ActionCommandEnum actionCommand) {
+    private MarsPosition action(ActionCommandEnum actionCommand) {
         if (ActionCommandEnum.MOVE == actionCommand) {
             move();
         }
