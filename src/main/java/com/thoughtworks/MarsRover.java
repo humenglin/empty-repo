@@ -20,29 +20,9 @@ public class MarsRover {
         }
 
         if (ActionCommandEnum.TURN_RIGHT == actionCommand) {
-            if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
-                this.marsPosition.setDirection(DirectionEnum.EAST);
-            } else if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
-                this.marsPosition.setDirection(DirectionEnum.WEST);
-            } else if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
-                this.marsPosition.setDirection(DirectionEnum.SOUTH);
-            } else if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
-                this.marsPosition.setDirection(DirectionEnum.NORTH);
-            }
+            turnRight();
         }
         return this.marsPosition;
-    }
-
-    private void turnLeft() {
-        if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.WEST);
-        } else if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.EAST);
-        } else if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.NORTH);
-        } else if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.SOUTH);
-        }
     }
 
     private void move() {
@@ -57,6 +37,30 @@ public class MarsRover {
         }
         if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
             this.marsPosition.setPositionX(this.marsPosition.getPositionX() - 1);
+        }
+    }
+
+    private void turnLeft() {
+        if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.WEST);
+        } else if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.EAST);
+        } else if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.NORTH);
+        } else if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.SOUTH);
+        }
+    }
+
+    private void turnRight() {
+        if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.EAST);
+        } else if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.WEST);
+        } else if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.SOUTH);
+        } else if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
+            this.marsPosition.setDirection(DirectionEnum.NORTH);
         }
     }
 }
