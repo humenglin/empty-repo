@@ -46,4 +46,44 @@ public class MarsPosition {
     public void setDirection(DirectionEnum direction) {
         this.direction = direction;
     }
+
+    void move(MarsRover marsRover) {
+        if (DirectionEnum.NORTH == getDirection()) {
+            setPositionY(getPositionY() + 1);
+        }
+        if (DirectionEnum.SOUTH == getDirection()) {
+            setPositionY(getPositionY() - 1);
+        }
+        if (DirectionEnum.EAST == getDirection()) {
+            setPositionX(getPositionX() + 1);
+        }
+        if (DirectionEnum.WEST == getDirection()) {
+            setPositionX(getPositionX() - 1);
+        }
+        checkPosition();
+    }
+
+    void turnLeft(MarsRover marsRover) {
+        if (DirectionEnum.NORTH == getDirection()) {
+            setDirection(DirectionEnum.WEST);
+        } else if (DirectionEnum.SOUTH == getDirection()) {
+            setDirection(DirectionEnum.EAST);
+        } else if (DirectionEnum.EAST == getDirection()) {
+            setDirection(DirectionEnum.NORTH);
+        } else if (DirectionEnum.WEST == getDirection()) {
+            setDirection(DirectionEnum.SOUTH);
+        }
+    }
+
+    void turnRight(MarsRover marsRover) {
+        if (DirectionEnum.NORTH == getDirection()) {
+            setDirection(DirectionEnum.EAST);
+        } else if (DirectionEnum.SOUTH == getDirection()) {
+            setDirection(DirectionEnum.WEST);
+        } else if (DirectionEnum.EAST == getDirection()) {
+            setDirection(DirectionEnum.SOUTH);
+        } else if (DirectionEnum.WEST == getDirection()) {
+            setDirection(DirectionEnum.NORTH);
+        }
+    }
 }

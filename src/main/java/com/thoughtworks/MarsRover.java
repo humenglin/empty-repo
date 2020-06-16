@@ -1,9 +1,6 @@
 package com.thoughtworks;
 
-import com.thoughtworks.constants.CHECKMSG;
 import com.thoughtworks.enumeration.ActionCommandEnum;
-import com.thoughtworks.enumeration.DirectionEnum;
-import com.thoughtworks.exception.OutOfBoundaryException;
 
 import java.util.List;
 
@@ -23,56 +20,17 @@ public class MarsRover {
 
     private MarsPosition action(ActionCommandEnum actionCommand) {
         if (ActionCommandEnum.MOVE == actionCommand) {
-            move();
+            marsPosition.move(this);
         }
 
         if (ActionCommandEnum.TURN_LEFT == actionCommand) {
-            turnLeft();
+            marsPosition.turnLeft(this);
         }
 
         if (ActionCommandEnum.TURN_RIGHT == actionCommand) {
-            turnRight();
+            marsPosition.turnRight(this);
         }
         return this.marsPosition;
     }
 
-    private void move() {
-        if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
-            this.marsPosition.setPositionY(this.marsPosition.getPositionY() + 1);
-        }
-        if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
-            this.marsPosition.setPositionY(this.marsPosition.getPositionY() - 1);
-        }
-        if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
-            this.marsPosition.setPositionX(this.marsPosition.getPositionX() + 1);
-        }
-        if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
-            this.marsPosition.setPositionX(this.marsPosition.getPositionX() - 1);
-        }
-        this.marsPosition.checkPosition();
-    }
-
-    private void turnLeft() {
-        if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.WEST);
-        } else if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.EAST);
-        } else if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.NORTH);
-        } else if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.SOUTH);
-        }
-    }
-
-    private void turnRight() {
-        if (DirectionEnum.NORTH == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.EAST);
-        } else if (DirectionEnum.SOUTH == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.WEST);
-        } else if (DirectionEnum.EAST == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.SOUTH);
-        } else if (DirectionEnum.WEST == this.marsPosition.getDirection()) {
-            this.marsPosition.setDirection(DirectionEnum.NORTH);
-        }
-    }
 }
